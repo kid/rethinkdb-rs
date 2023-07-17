@@ -733,13 +733,3 @@ impl r {
         cmd::args::Args(arg)
     }
 }
-
-// Helper for making writing examples less verbose
-#[doc(hidden)]
-pub fn example<'a, Q, F, S>(_query: Q)
-where
-    Q: FnOnce(r, &'a mut Session) -> async_stream::AsyncStream<(), F>,
-    F: futures::Future<Output = S>,
-    S: futures::Stream<Item = Result<serde_json::Value>>,
-{
-}
